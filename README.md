@@ -39,6 +39,10 @@
 |broadcast_id|integer|null: false|
 |parking_id|integer|null: false|
 |other_id|integer|null: false|
+|contract_period_id|integer|null: false|
+|current_situation_id|integer|null: false|
+|delivery_id|integer|null: false|
+|renewal_fee_id|integer|null: false|
 |user_id|references|null: false, foreign_key: true|
 
 ### Association
@@ -65,6 +69,10 @@
 - belongs_to_active_hash: Broadcast
 - belongs_to_active_hash: Parking
 - belongs_to_active_hash: Other
+- belongs_to_active_hash: ContractPeriod
+- belongs_to_active_hash: CurrentSituation
+- belongs_to_active_hash: Delivery
+- belongs_to_active_hash: RenewalFee
 
 ## commentsテーブル
 |Column|Type|Options|
