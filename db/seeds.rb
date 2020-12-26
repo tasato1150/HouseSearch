@@ -1,3 +1,14 @@
+User.create! (
+  [
+    {id: 1,
+     name:  "管理者",
+     email: "admin@sample.jp",
+     password:              "admin1111",
+     password_confirmation: "admin1111",
+     admin: true}
+  ]
+)
+
 Prefecture.create! (
   [
     {id: 1, prefecture_name: '東京都'}, {id: 2, prefecture_name: '神奈川県'}, {id: 3, prefecture_name: '千葉県'},
