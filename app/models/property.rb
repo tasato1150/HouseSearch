@@ -16,7 +16,7 @@ class Property < ApplicationRecord
   validates :building_structure_id, presence: { message: "を選択してください"}
 
   extend ActiveHash::Associations::ActiveRecordExtensions
-  belongs_to_active_hash :FloorPlan         #間取り
+  belongs_to_active_hash :Plan         #間取り
   belongs_to_active_hash :MinutesFoot       #駅徒歩分
   belongs_to_active_hash :BuildingStructure #建物構造
   belongs_to_active_hash :Position          #位置

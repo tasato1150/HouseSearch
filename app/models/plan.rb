@@ -1,4 +1,4 @@
-class PloorPlan < ActiveHash::Base
+class Plan < ActiveHash::Base
   self.data = [
       {id: 1, name: 'ワンルーム'}, {id: 2, name: '1K'}, {id: 3, name: '1DK'},
       {id: 4, name: '1LDK'}, {id: 5, name: '2K'}, {id: 6, name: '2DK'},

@@ -1,6 +1,6 @@
 Admin.create!(
   [
-    {id: 1, name: '管理者', email: 'admin@sample.jp', password: 'admin1111', password_confirmation: 'admin1111'}
+    {id: 1, name: 'admin', email: 'admin@sample.jp', password: 'admin1111', password_confirmation: 'admin1111'}
   ]
 )
 

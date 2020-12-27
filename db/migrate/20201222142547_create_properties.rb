@@ -8,7 +8,7 @@ class CreateProperties < ActiveRecord::Migration[6.0]
       t.integer :number_floor
       t.text :other_charge
       t.integer :occupied_area, null: false
-      t.integer :floor_plan_id, null: false
+      t.integer :plan_id, null: false
       t.integer :minutes_foot_id, null: false
       t.integer :age, null: false
       t.integer :building_structure_id, null: false

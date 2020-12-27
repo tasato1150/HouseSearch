@@ -13,16 +13,15 @@
 ActiveRecord::Schema.define(version: 2020_12_26_083828) do
 
   create_table "admins", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "name", null: false
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
+    t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["email"], name: "index_admins_on_email", unique: true
-    t.index ["name"], name: "index_admins_on_name", unique: true
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
   end
 
@@ -87,7 +86,7 @@ ActiveRecord::Schema.define(version: 2020_12_26_083828) do
     t.integer "number_floor"
     t.text "other_charge"
     t.integer "occupied_area", null: false
-    t.integer "floor_plan_id", null: false
+    t.integer "plan_id", null: false
     t.integer "minutes_foot_id", null: false
     t.integer "age", null: false
     t.integer "building_structure_id", null: false
