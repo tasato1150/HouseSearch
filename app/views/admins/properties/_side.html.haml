@@ -1,0 +1,17 @@
+.Admin__Side
+  .Side__header
+    = link_to admins_properties_path do
+      %h1.Title
+        管理者ページ
+  .Side__List
+    %nav.Side__nav
+      %ul.Side__nav-list
+        %li.Side__nav-btn.active
+          = link_to '#', class: 'Side__nav-listItem' do
+            物件一覧
+        %li.Side__nav-btn
+          = link_to new_admins_property_path, class: 'Side__nav-listItem' do
+            物件登録
+        %li.Side__nav-btn
+          = link_to destroy_admin_session_path, method: :delete, data: {confirm: 'ログアウトしますか？'}, class: 'Side__nav-listItem' do
+            ログアウト

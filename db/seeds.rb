@@ -1,11 +1,6 @@
-User.create! (
+Admin.create!(
   [
-    {id: 1,
-     name:  "管理者",
-     email: "admin@sample.jp",
-     password:              "admin1111",
-     password_confirmation: "admin1111",
-     admin: true}
+    {id: 1, name: '管理者', email: 'admin@sample.jp', password: 'admin1111', password_confirmation: 'admin1111'}
   ]
 )
 

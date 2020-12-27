@@ -1,5 +1,5 @@
 class Property < ApplicationRecord
-  belongs_to :user
+  belongs_to :admin
   belongs_to :prefecture
   has_many :comments, dependent: :destroy
   has_many :likes, dependent: :destroy

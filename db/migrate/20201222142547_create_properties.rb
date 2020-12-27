@@ -26,7 +26,7 @@ class CreateProperties < ActiveRecord::Migration[6.0]
       t.integer :other_id
       t.string :delivery
       t.string :renewal_fee
-      t.references :user, null: false, foreign_key: true
+      t.references :admin, null: false, foreign_key: true
       t.references :prefecture, null: false, foreign_key: true
       t.timestamps
     end
