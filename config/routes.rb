@@ -37,4 +37,11 @@ Rails.application.routes.draw do
       get :likes
     end
   end
+
+  resources :properties do
+    collection do
+      get :municipalities_select
+    end
+  end
+
 end

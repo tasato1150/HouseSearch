@@ -3,7 +3,10 @@ class CreateProperties < ActiveRecord::Migration[6.0]
     create_table :properties do |t|
       t.string :title, null: false
       t.integer :rent, null: false
-      t.integer :deposit, null: false
+      t.integer :management_fee
+      t.string :address
+      t.string :caution_money, null: false
+      t.string :key_money, null: false
       t.integer :location_floor
       t.integer :number_floor
       t.text :other_charge
@@ -28,6 +31,7 @@ class CreateProperties < ActiveRecord::Migration[6.0]
       t.string :renewal_fee
       t.references :admin, null: false, foreign_key: true
       t.references :prefecture, null: false, foreign_key: true
+      t.references :municipality, null: false, foreign_key: true
       t.timestamps
     end
   end

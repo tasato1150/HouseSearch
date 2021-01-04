@@ -1,3 +1,154 @@
 .Admin__Main
   .Main__header
     物件登録
+  .Main__contents
+    .Main__form
+      = form_with model: @property, class: "Form", local: true do |f|
+        .Form__contents
+          %table
+            %tr
+              %th
+                = f.label :title, '物件名', class: "Form__label"
+                %span.Required 必須
+              %td
+                = f.text_field :title
+              .error__message
+              - if @property.errors.include?(:title)
+                = @property.errors.full_messages_for(:title).first
+            %tr
+              %th
+                = f.label :prefecture, '都道府県', class: "Form__label"
+                %span.Required 必須
+              %td
+                = f.collection_select :prefecture, Prefecture.all, :id, :prefecture_name, { include_blank: "---"}
+              .error__message
+                - if @property.errors.include?(:prefecture)
+                  = @property.errors.full_messages_for(:prefecture).first
+            %tr
+              %th
+                = f.label :municipality, '市区町村', class: "Form__label"
+                %span.Required 必須
+              %td
+                #municipality_message 都道府県を選択してください
+                = f.collection_select :municipality, @municipality_tokyo, :id, :municipality_name, { include_blank: "---"}, {id: "tokyo_municipality"}
+                = f.collection_select :municipality, @municipality_kanagawa, :id, :municipality_name, { include_blank: "---"}, {id: "kanagawa_municipality"}
+                = f.collection_select :municipality, @municipality_chiba, :id, :municipality_name, { include_blank: "---"}, {id: "chiba_municipality"}
+                = f.collection_select :municipality, @municipality_saitama, :id, :municipality_name, { include_blank: "---"}, {id: "saitama_municipality"}
+                = f.collection_select :municipality, @municipality_ibaraki, :id, :municipality_name, { include_blank: "---"}, {id: "ibaraki_municipality"}
+                = f.collection_select :municipality, @municipality_tochigi, :id, :municipality_name, { include_blank: "---"}, {id: "tochigi_municipality"}
+                = f.collection_select :municipality, @municipality_gunma, :id, :municipality_name, { include_blank: "---"}, {id: "gunma_municipality"}
+              .error__message
+                - if @property.errors.include?(:municipality)
+                  = @property.errors.full_messages_for(:municipality).first
+            %tr
+              %th
+                = f.label :address, '番地', class: "Form__label"
+                %span.Required 必須
+              %td
+                = f.text_field :address
+              .error__message
+                - if @property.errors.include?(:address)
+                  = @property.errors.full_messages_for(:address).first
+            %tr
+              %th
+                = f.label :line, '路線', class: "Form__label"
+                %span.Required 必須
+              %td
+                #municipality_message 都道府県を選択してください
+                = f.collection_select :line, @line_tokyo, :id, :line_name, { include_blank: "---"}, {id: "tokyo_line"}
+                = f.collection_select :line, @line_kanagawa, :id, :line_name, { include_blank: "---"}, {id: "kanagawa_line"}
+                = f.collection_select :line, @line_chiba, :id, :line_name, { include_blank: "---"}, {id: "chiba_line"}
+                = f.collection_select :line, @line_saitama, :id, :line_name, { include_blank: "---"}, {id: "saitama_line"}
+                = f.collection_select :line, @line_ibaraki, :id, :line_name, { include_blank: "---"}, {id: "ibaraki_line"}
+                = f.collection_select :line, @line_tochigi, :id, :line_name, { include_blank: "---"}, {id: "tochigi_line"}
+                = f.collection_select :line, @line_gunma, :id, :line_name, { include_blank: "---"}, {id: "gunma_line"}
+              .error__message
+                - if @property.errors.include?(:line)
+                  = @property.errors.full_messages_for(:line).first
+            %tr
+              %th
+                = f.label :minutes_foot_id, '駅徒歩分', class: "Form__label"
+                %span.Required 必須
+              %td
+                = f.collection_select :minutes_foot_id, MinutesFoot.all, :id, :name, { include_blank: "---"}
+                分
+              .error__message
+                - if @property.errors.include?(:minutes_foot_id)
+                  = @property.errors.full_messages_for(:minutes_foot_id).first
+            %tr
+              %th
+                = f.label :rent, '賃料', class: "Form__label"
+                %span.Required 必須
+              %td
+                = f.number_field :rent
+                万円
+              .error__message
+              - if @property.errors.include?(:rent)
+                =　@property.errors.full_messages_for(:rent).first
+            %tr
+              %th
+                = f.label :management_fee, '管理費等', class: "Form__label"
+              %td
+                = f.number_field :management_fee
+                円
+            %tr
+              %th
+                = f.label :other_charge, 'その他費用', class: "Form__label"
+              %td
+                = f.number_field :other_charge
+                円
+            %tr
+              %th
+                = f.label :caution_money, '敷金', class: "Form__label"
+                %span.Required 必須
+              %td
+                = f.select :caution_money, [ ["無"], ["1ヶ月"], ["2ヶ月"] ,["3ヶ月"] ], { include_blank: "---" }
+              .error__message
+                - if @property.errors.include?(:caution_money)
+                  = @property.errors.full_messages_for(:caution_money).first
+            %tr
+              %th
+                = f.label :key_money, '礼金', class: "Form__label"
+                %span.Required 必須
+              %td
+                = f.select :key_money, [ ["無"], ["1ヶ月"], ["2ヶ月"] ,["3ヶ月"] ], { include_blank: "---" }
+              .error__message
+                - if @property.errors.include?(:key_money)
+                  = @property.errors.full_messages_for(:key_money).first
+            %tr
+              %th
+                = f.label :plan_id, '間取り', class: "Form__label"
+                %span.Required 必須
+              %td
+                = f.collection_select :plan_id, Plan.all, :id, :name, { include_blank: "---"}
+              .error__message
+                - if @property.errors.include?(:plan_id)
+                  = @property.errors.full_messages_for(:plan_id).first
+            %tr
+              %th
+                = f.label :location_floor, '所在階', class: "Form__label"
+              %td
+                = f.number_field :location_floor
+                階
+            %tr
+              %th
+                = f.label :number_floor, '階数', class: "Form__label"
+              %td
+                = f.number_field :number_floor
+                階建
+            %tr
+              %th
+                = f.label :occupied_area, '占有面積', class: "Form__label"
+              %td
+                = f.number_field :occupied_area
+                ㎡
+            %tr
+              %th
+                = f.label :age, '築年数', class: "Form__label"
+                %span.Required 必須
+              %td
+                = f.number_field :age
+                年
+              .error__message
+                - if @property.errors.include?(:age)
+                  = @property.errors.full_messages_for(:age).first

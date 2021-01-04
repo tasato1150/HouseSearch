@@ -81,7 +81,10 @@ ActiveRecord::Schema.define(version: 2020_12_26_083828) do
   create_table "properties", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "title", null: false
     t.integer "rent", null: false
-    t.integer "deposit", null: false
+    t.integer "management_fee"
+    t.string "address"
+    t.string "caution_money", null: false
+    t.string "key_money", null: false
     t.integer "location_floor"
     t.integer "number_floor"
     t.text "other_charge"
@@ -106,9 +109,11 @@ ActiveRecord::Schema.define(version: 2020_12_26_083828) do
     t.string "renewal_fee"
     t.bigint "admin_id", null: false
     t.bigint "prefecture_id", null: false
+    t.bigint "municipality_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["admin_id"], name: "index_properties_on_admin_id"
+    t.index ["municipality_id"], name: "index_properties_on_municipality_id"
     t.index ["prefecture_id"], name: "index_properties_on_prefecture_id"
   end
 
@@ -139,5 +144,6 @@ ActiveRecord::Schema.define(version: 2020_12_26_083828) do
   add_foreign_key "likes", "properties"
   add_foreign_key "likes", "users"
   add_foreign_key "properties", "admins"
+  add_foreign_key "properties", "municipalities"
   add_foreign_key "properties", "prefectures"
 end

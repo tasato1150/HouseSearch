@@ -11,13 +11,14 @@
   .Side__header {
     height: 70px;
     line-height: 70px;
-    background-color: #333333;
+    background-color: lightgray;
     text-align: center;
     font-size: 18px;
     font-weight: bold;
+    border-bottom: 2px solid #fff;
     a {
       text-decoration: none;
-      color: #fff;
+      color: black;
     }
   }
   .Side__List {
@@ -67,14 +68,155 @@
   }
 }
 
+@mixin FormInput {
+  height: 35px;
+  border: 1px solid #333333;
+  border-radius: 5px;
+  padding: 0 15px;
+}
+
 .Admin__Main {
   width: calc(100vw - 270px);
+  background-color: #333333;
   .Main__header {
     height: 70px;
     line-height: 70px;
     text-align: center;
-    font-size: 18px;
+    font-size: 24px;
     font-weight: bold;
-    border-bottom: 2px solid #333333;
+    color: #fff;
+    border-bottom: 2px solid #fff;
   }
+  .Main__contents {
+    height: calc(100vh - 70px);
+    overflow: scroll;
+    padding: 30px 0;
+    .Main__form {
+      width: 100%;
+      margin: 0 auto;
+      max-width: 700px;
+      background-color: #fff;
+      .Form__contents {
+        display: flex;
+        flex-direction: column;
+        table {
+          border-collapse: collapse;
+          border: 1px solid #dedede;
+          th {
+            width: 20%;
+            background-color: #eee;
+            font-weight: 400;
+            padding: 8px;
+            border: 1px solid #dedede;
+            font-size: 14px;
+            text-align: center;
+          }
+          td {
+            width: 60%;
+            padding: 15px;
+            border: 1px solid #dedede;
+            font-size: 14px;
+          } 
+        }
+        .Form__label {
+          font-weight: bold;
+        }
+        #property_title {
+          width: 100%;
+          @include FormInput;
+        }
+        #property_rent {
+          width: 150px;
+          @include FormInput;
+        }
+        #property_management_fee {
+          width: 150px;
+          @include FormInput;
+        }
+        #property_caution_money {
+          width: 150px;
+          @include FormInput;
+        }
+        #property_key_money {
+          width: 150px;
+          @include FormInput;
+        }
+        #property_location_floor {
+          width: 150px;
+          @include FormInput;
+        }
+        #property_number_floor {
+          width: 150px;
+          @include FormInput;
+        }
+        #property_other_charge {
+          width: 150px;
+          @include FormInput;
+        }
+        #property_occupied_area {
+          width: 150px;
+          @include FormInput;
+        }
+        #property_plan_id {
+          width: 150px;
+          @include FormInput;
+        }
+        #property_minutes_foot_id {
+          width: 150px;
+          @include FormInput;
+        }
+        #property_age {
+          width: 150px;
+          @include FormInput;
+        }
+        #property_prefecture {
+          width: 150px;
+          @include FormInput;
+        }
+        #tokyo_municipality {
+          width: 150px;
+          @include FormInput;
+        }
+        #kanagawa_municipality {
+          width: 150px;
+          @include FormInput;
+        }
+        #chiba_municipality {
+          width: 150px;
+          @include FormInput;
+        }
+        #saitama_municipality {
+          width: 150px;
+          @include FormInput;
+        }
+        #ibaraki_municipality {
+          width: 150px;
+          @include FormInput;
+        }
+        #tochigi_municipality {
+          width: 150px;
+          @include FormInput;
+        }
+        #gunma_municipality {
+          width: 150px;
+          @include FormInput;
+        }
+        #property_address {
+          width: 100%;
+          @include FormInput;
+        }
+      }
+    }
+  }
+}
+
+.Required {
+  font-size: 12px;
+  color: white;
+  background-color: red;
+  margin-left: 5px;
+  padding: 0 4px;
+  border-radius: 2px;
+  display: inline-block;
+  line-height: 1.4em;
 }

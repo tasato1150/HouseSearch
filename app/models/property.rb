@@ -1,6 +1,8 @@
 class Property < ApplicationRecord
   belongs_to :admin
+  belongs_to :user
   belongs_to :prefecture
+  belongs_to :municipality
   has_many :comments, dependent: :destroy
   has_many :likes, dependent: :destroy
   has_many :images, dependent: :destroy
@@ -8,7 +10,8 @@ class Property < ApplicationRecord
 
   validates :title, presence: true
   validates :rent, presence: true
-  validates :deposit, presence: true
+  validates :caution_money, presence: { message: "を選択してください"}
+  validates :key_money,presence: { message: "を選択してください"}
   validates :occupied_area, presence: true
   validates :age, presence: true
   validates :floor_plan_id, presence: { message: "を選択してください"}
